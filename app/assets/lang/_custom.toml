@@ -11,7 +11,7 @@ mediaYouTubeURL = "https://www.youtube.com/@kasycraft"
 mediaDiscordURL = "https://discord.kasycraft.fr"
 
 [ejs.settings]
-sourceGithubLink = "https://launcher.kasycraft.fr"
+sourceGithubLink = "https://github.com/wiltark/kasylauncher"
 supportLink = "https://kasycraft.fr/support"
 
 [ejs.welcome]
