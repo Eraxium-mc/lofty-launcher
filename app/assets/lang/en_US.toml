@@ -5,7 +5,7 @@ usernameEditButton = "Éditer"
 settingsTooltip = "Paramètres"
 serverStatus = "ÉTAT DU SERVEUR"
 serverStatusPlaceholder = "HORS LIGNE"
-mojangStatus = "ÉTAT MC"
+mojangStatus = "status"
 mojangStatusTooltipTitle = "Services"
 mojangStatusNETitle = "Non Essentiel"
 newsButton = "ACTUALITÉS"
@@ -131,7 +131,7 @@ continueButton = "CONTINUER"
 
 [js.discord]
 waiting = "En attente du client.."
-state = "Serveur : {shortId}"
+state = "kasylauncher V2.1.0"
 
 [js.index]
 microsoftLoginTitle = "Connexion Microsoft"
