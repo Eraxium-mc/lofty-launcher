@@ -131,7 +131,7 @@ continueButton = "CONTINUER"
 
 [js.discord]
 waiting = "En attente du client.."
-state = "kasylauncher V2.1.0"
+state = "kasylauncher V2.1.1"
 
 [js.index]
 microsoftLoginTitle = "Connexion Microsoft"
