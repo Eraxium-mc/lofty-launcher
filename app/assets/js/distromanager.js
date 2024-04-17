@@ -5,7 +5,7 @@ const ConfigManager = require("./configmanager");
 // Old WesterosCraft url.
 // exports.REMOTE_DISTRO_URL = 'http://mc.westeroscraft.com/WesterosCraftLauncher/distribution.json'
 exports.REMOTE_DISTRO_URL =
-  "https://download.stiala.xyz/kasycraft/distribution.json";
+  "https://cdn.kasycraft.fr/kasylauncher/distribution.json";
 
 const api = new DistributionAPI(
   ConfigManager.getLauncherDirectory(),
