@@ -702,7 +702,25 @@ function slide_(up){
         newsBtn.style.top = '10px'
     }
 }
-
+document.getElementById('newsButtonl').onclick = () => {
+    // Toggle tabbing.
+    if(newsActive){
+        $('#landingContainer *').attr('tabindex', '-1')
+        $('#newsContainer, #newsContainer *, #lower, #lower #center *').removeAttr('tabindex')
+    } else {
+        $('#landingContainer *').removeAttr('tabindex')
+        $('#newsContainer *').attr('tabindex', '-1')
+        
+        if(newsAlertShown){
+            $('#newsButtonAlert').fadeOut(2000)
+            newsAlertShown = false
+            ConfigManager.setNewsCacheDismissed(true)
+            ConfigManager.save()
+        }
+    }
+    slide_(!newsActive)
+    newsActive = !newsActive
+}
 // Bind news button.
 document.getElementById('newsButton').onclick = () => {
     // Toggle tabbing.
