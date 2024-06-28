@@ -1,5 +1,5 @@
-appId: "KasyLauncher"
-productName: "KasyLauncher"
+appId: "lofty-launcher"
+productName: "lofty-launcher"
 artifactName: "${productName}-setup-${version}.${ext}"
 
 copyright: "Copyright © 2023-2024 kasycorp"
@@ -41,7 +41,7 @@ linux:
   target: "AppImage"
   maintainer: "kasycorp"
   vendor: "kasycorp"
-  synopsis: "kasylauncher"
+  synopsis: "lofty-launcher"
   description: "soon."
   category: "Game"
 

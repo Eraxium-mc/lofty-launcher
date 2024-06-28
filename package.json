@@ -1,12 +1,12 @@
 {
 
-  "name": "kasylauncher",
+  "name": "lofty-launcher",
   "version": "2.1.3",
   "author": "kasycorp",
   "license": "UNLICENSED",
-  "homepage": "https://github.com/wilark/kasylauncher/",
+  "homepage": "https://github.com/wilark/lofty-launcher/",
   "bugs": {
-    "url": "https://github.com/wilark/kasylauncher/issues"
+    "url": "https://github.com/wilark/lofty-launcher/issues"
   },
   "private": true,
   "main": "index.js",
@@ -45,6 +45,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wilark/kasylauncher"
+    "url": "git+https://github.com/wilark/lofty-launcher"
   }
 }
