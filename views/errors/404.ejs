@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="<%= lang %>">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <%- include('../' + lang + '/integration/base') %>
+    <title><%= title %></title>
+</head>
+<body>
+    <%- include('../' + lang + '/integration/header') %>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1><%= message %></h1>
+            <p><%= description %></p>
+            <div class="cta-buttons">
+                <button class="cta-primary">Home</button>
+            </div>
+        </div>
+    </section>
+    <%- include('../' + lang + '/integration/footer') %>
+</body>
+</html>
