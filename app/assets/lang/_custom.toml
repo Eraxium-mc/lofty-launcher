@@ -1,0 +1,20 @@
+# Custom Language File for Launcher Customizer
+
+[ejs.app]
+title = "LOFTY LAUNCHER"
+
+[ejs.landing]
+mediaGitHubURL = "https://launcher.kasycraft.fr"
+mediaTwitterURL = "https://twitter.com/kasycraft_off"
+mediaInstagramURL = "https://www.instagram.com/kasycraft/"
+mediaYouTubeURL = "https://www.youtube.com/@kasycraft"
+mediaDiscordURL = "https://discord.kasycraft.fr"
+
+[ejs.settings]
+sourceGithubLink = "https://github.com/wiltark/LOFTYLAUNCHER"
+supportLink = "https://kasycraft.fr/support"
+
+[ejs.welcome]
+welcomeHeader = "BIENVENUE SUR LOFTY LAUNCHER"
+welcomeDescription = "Le launcher cool."
+welcomeDescCTA = "Vous n'êtes qu'à quelques clics des modes packs."
