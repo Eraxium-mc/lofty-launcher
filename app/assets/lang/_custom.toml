@@ -4,15 +4,15 @@
 title = "LOFTY LAUNCHER"
 
 [ejs.landing]
-mediaGitHubURL = "https://launcher.kasycraft.fr"
+mediaGitHubURL = "https://launcher.eraxium.com"
 mediaTwitterURL = "https://twitter.com/kasycraft_off"
 mediaInstagramURL = "https://www.instagram.com/kasycraft/"
 mediaYouTubeURL = "https://www.youtube.com/@kasycraft"
-mediaDiscordURL = "https://discord.kasycraft.fr"
+mediaDiscordURL = "https://discord.eraxium.com"
 
 [ejs.settings]
 sourceGithubLink = "https://github.com/wiltark/LOFTYLAUNCHER"
-supportLink = "https://kasycraft.fr/support"
+supportLink = "https://eraxium.com/support"
 
 [ejs.welcome]
 welcomeHeader = "BIENVENUE SUR LOFTY LAUNCHER"
