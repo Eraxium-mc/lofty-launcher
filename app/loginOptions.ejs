@@ -1,12 +1,13 @@
-<div id="loginOptionsContainer" style="display: none;">
-    <div id="loginOptionsContent">
-        <div class="loginOptionsMainContent">
-            <img height="100px" src="assets/images/SealCircle.png">
-            <h2><%- lang('loginOptions.loginOptionsTitle') %></h2>
-            <div class="loginOptionActions">
-                <div class="loginOptionButtonContainer">
-                    <button id="loginOptionMicrosoft" class="loginOptionButton">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 23 23">
+
+<div id="loginOptionsContainer" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50" style="background-size: cover; -webkit-user-select: none; background-image: url(https://fiverr-res.cloudinary.com/images/q_auto,f_auto/gigs/198755438/original/817f2342e76bf6cd2e8ae8af92aa13735c0c3bc8/create-a-high-quality-minecraft-landscape-for-you.jpg);">
+    <div id="loginOptionsContent" class="bg-gray-800 text-white p-8 rounded-lg shadow-lg">
+        <div class="loginOptionsMainContent text-center">
+            <img src="assets/images/SealCircle.png" class="mx-auto mb-4 w-24 h-24">
+            <h2 class="text-2xl font-bold mb-4"><%- lang('loginOptions.loginOptionsTitle') %></h2>
+            <div class="loginOptionActions flex justify-center">
+                <div class="loginOptionButtonContainer mb-4">
+                    <button id="loginOptionMicrosoft" class="loginOptionButton flex items-center justify-center bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500 transform hover:scale-105 transition-transform duration-300">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 23 23" class="mr-2">
                             <path fill="#f35325" d="M1 1h10v10H1z" />
                             <path fill="#81bc06" d="M12 1h10v10H12z" />
                             <path fill="#05a6f0" d="M1 12h10v10H1z" />
@@ -16,8 +17,8 @@
                     </button>
                 </div>
             </div>
-            <div id="loginOptionCancelContainer" style="display: none;">
-                <button id="loginOptionCancelButton"><%- lang('loginOptions.cancelButton') %></button>
+            <div id="loginOptionCancelContainer" class="hidden mt-4">
+                <button id="loginOptionCancelButton" class="bg-red-600 text-white py-2 px-4 rounded hover:bg-red-500 transform hover:scale-105 transition-transform duration-300"><%- lang('loginOptions.cancelButton') %></button>
             </div>
         </div>
     </div>

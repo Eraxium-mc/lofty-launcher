@@ -1,156 +1,21 @@
-<div id="landingContainer" style="display: nfone;">
-
-  <nav x-data="{ isOpen: false }" class="relative bg-gray-800">
-    <div class="container px-6 py-1 mx-auto md:flex md:justify-between md:items-center">
-      <div class="flex items-center justify-between">
-        <a href="#">
-          <img class="w-auto h-5 sm:h-14" src="https://loftymc.fr/assets/images/logotitlesh.png" alt="">
-        </a>
-      </div>
-      <div
-        class="bg-gray-800 md:mt-0 md:p-0 md:top-0 md:relative md:bg-transparent md:w-auto md:opacity-100 md:translate-x-0 md:flex md:items-center">
-        <div class="flex md:flex-row md:mx-6">
-          <a class="mx-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-500 md:mx-4 md:my-0"
-            href="https://loftymc.fr/">Home</a>
-          <a class="mx-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-500 md:mx-4 md:my-0"
-            href="https://fardihosting.fr/">Hébergeur</a>
-          <a class="mx-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-500 md:mx-4 md:my-0"
-            href="#">Discord</a>
-          <a class="mx-2 transition-colors duration-300 transform text-gray-200 hover:text-blue-500 md:mx-4 md:my-0"
-            href="https://github.com/Eraxium-mc/lofty-launcher/">Github</a>
-        </div>
-      </div>
-    </div>
-  </nav>
-  <main>
-    <!-- Banner Section -->
-    <div id="bannerContainer" class="bg-blue-600 text-white py-4 px-6 text-center">
-      <h1 class="text-3xl font-bold mb-2">Bienvenue sur Lofty Launcher</h1>
-      <p class="text-lg">Votre expérience Minecraft ultime commence ici !</p>
-    </div>
-
-    <div id="newsContainer" class="m-4">
-      <div id="newsContent" class="text-white bg-gray-800 rounded p-4">
-        <div id="newsStatusContainer">
-          <div id="newsStatusContent">
-            <div id="newsTitleContainer" class="text-lg mb-2">
-              <a id="newsArticleTitle" href="#">Lorem Ipsum</a>
-            </div>
-            <div id="newsMetaContainer" class="text-xs flex items-center gap-4">
-              <div id="newsArticleDateWrapper">
-                <span id="newsArticleDate">Mar 15, 44 BC, 9:14 AM</span>
-              </div>
-              <div id="newsArticleAuthorWrapper">
-                <span id="newsArticleAuthor">by Cicero</span>
-              </div>
-              <a href="#" id="newsArticleComments">0 Comments</a>
-            </div>
-          </div>
-          <div id="newsNavigationContainer" class="hidden">
-            <button id="newsButtonl" class="bg-none border-none cursor-pointer">
-              <i class="bi bi-arrow-up-short" style="font-size: 32px;"></i>
-            </button>
-            <button id="newsNavigateLeft" class="bg-none border-none cursor-pointer">
-              <i class="bi bi-arrow-left-short" style="font-size: 32px;"></i>
-            </button>
-            <span id="newsNavigationStatus"><%- lang('landing.newsNavigationStatus', { currentPage: 1, totalPages: 1 })
-                %></span>
-            <button id="newsNavigateRight" class="bg-none border-none cursor-pointer">
-              <i class="bi bi-arrow-right-short" style="font-size: 32px;"></i>
-            </button>
-          </div>
-        </div>
-        <div id="newsArticleContainer">
-          <div id="newsArticleContent">
-            <div id="newsArticleContentScrollable" class="max-h-52 overflow-y-auto whitespace-pre-wrap">
-              <!-- Article Content -->
-            </div>
-          </div>
-        </div>
-      </div>
-      <div id="newsErrorContainer" class="mt-4">
-        <div id="newsErrorLoading">
-          <span id="nELoadSpan" class="newsErrorContent text-gray-400"><%- lang('landing.newsErrorLoadSpan') %></span>
-        </div>
-        <div id="newsErrorFailed" class="hidden">
-          <span id="nEFailedSpan" class="newsErrorContent text-gray-400"><%- lang('landing.newsErrorFailedSpan')
-              %></span>
-          <button id="newsErrorRetry" class="bg-none border-none text-blue-500 cursor-pointer">
-            <i class="bi bi-arrow-repeat"></i> <%- lang('landing.newsErrorRetryButton') %>
-          </button>
-        </div>
-        <div id="newsErrorNone" class="hidden">
-          <span id="nENoneSpan" class="newsErrorContent text-gray-400"><%- lang('landing.newsErrorNoneSpan') %></span>
-        </div>
-      </div>
-    </div>
-
-  </main>
-  <!-- Downbar -->
-  <div class="fixed bottom-0 left-0 w-full bg-gray-800 text-white py-2 px-4 flex justify-between items-center">
-    <div id="user_content" class="flex gap-2 items-center">
-        <div id="avatarContainer" class="h-10 w-10"></div>
-        <span id="user_text" class="text-lg font-medium pt-1"><%- lang('landing.usernamePlaceholder') %></span>
-        <button id="avatarOverlay" class="ml-2">
-            <i class="bi bi-gear-wide"></i>
-        </button>
-    </div>
-    <div id="launch_details" class="mt-4 flex flex-row gap-4 hidden">
-        <div id="launch_details_left" class="flex flex-col items-center justify-center">
-            <span id="launch_progress_label">0%</span>
-        </div>
-        <div id="launch_details_right" class="w-full relative">
-            <progress id="launch_progress" class="w-full h-2 bg-gray-200 rounded" value="22" max="100"></progress>
-            <span id="launch_details_text" class="absolute top-0 left-0 w-full text-center text-sm opacity-80">
-                <%- lang('landing.launchDetails') %>
-            </span>
-        </div>
-    </div>
-    <div id="launch_content" class="flex gap-2">
-        <button id="server_selection_button" class="bg-none border border-gray-600 py-2 px-4 rounded cursor-pointer hover:bg-gray-700">
-            <%- lang('landing.launchButtonPlaceholder') %>
-        </button>
-        <button id="launch_button" class="bg-blue-600 text-white border-none py-2 px-4 rounded cursor-pointer hover:bg-blue-500">
-            <%- lang('landing.launchButton') %>
-        </button>
-    </div>
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div id="landingContainer" class="hidden">
+<link rel="stylesheet" href="/app/assets/css/launcher.css" />
+<div id="landingContainer" style="">
   <div id="upper">
     <div id="left">
-      <div id="image_seal_container">
-        <img id="image_seal" src="assets/images/SealCircle.png" />
-        <div id="updateAvailableTooltip">
-          <%- lang('landing.updateAvailableTooltip') %>
-        </div>
-      </div>
-    </div>
-    <div id="content"></div>
-    <div id="right">
       <div id="rightContainer">
+        <div id="image_seal_container">
+          <img id="image_seal" src="assets/images/SealCircle.png" />
+          <div id="updateAvailableTooltip">
+            <%- lang('landing.updateAvailableTooltip') %>
+          </div>
+        </div>
         <div id="user_content">
-          <span id="user_text"><%- lang('landing.usernamePlaceholder') %></span>
           <div id="avatarContainer">
             <button id="avatarOverlay">
-              <%- lang('landing.usernameEditButton') %>
+              <%- lang('landing.usernamePlaceholder') %>
             </button>
           </div>
+          <span id="user_text"><%- lang('landing.usernamePlaceholder') %></span>
         </div>
         <div id="mediaContent">
           <div id="internalMedia">
@@ -281,6 +146,8 @@
         </div>
       </div>
     </div>
+    <div id="content"></div>
+    <div id="right"></div>
   </div>
   <div id="lower">
     <div id="left">
@@ -379,11 +246,21 @@
         <div id="newsNavigationContainer">
           <button id="newsButtonl">
             <!--<img src="assets/images/icons/arrow.svg" id="newsButtonSVG"/>-->
-            <div id="newsButtonAlert" style="display: none;"></div>
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-arrow-up-short" viewBox="0 0 16 16">
-              <path fill-rule="evenodd" d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"/>
+            <div id="newsButtonAlert" style="display: none"></div>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="32"
+              height="32"
+              fill="currentColor"
+              class="bi bi-arrow-up-short"
+              viewBox="0 0 16 16"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M8 12a.5.5 0 0 0 .5-.5V5.707l2.146 2.147a.5.5 0 0 0 .708-.708l-3-3a.5.5 0 0 0-.708 0l-3 3a.5.5 0 1 0 .708.708L7.5 5.707V11.5a.5.5 0 0 0 .5.5"
+              />
             </svg>
-        </button>
+          </button>
           <button id="newsNavigateLeft">
             <svg id="newsNavigationLeftSVG" viewBox="0 0 24.87 13.97">
               <defs>

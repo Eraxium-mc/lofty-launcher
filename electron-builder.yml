@@ -1,8 +1,8 @@
-appId: "lofty-launcher"
-productName: "lofty-launcher"
+appId: "loftylauncher"
+productName: "loftylauncher"
 artifactName: "${productName}-setup-${version}.${ext}"
 
-copyright: "Copyright © 2023-2024 eraxium"
+copyright: "Copyright © 2023-2024 WilTark"
 
 asar: true
 compression: "maximum"
@@ -39,9 +39,9 @@ mac:
 # Linux Configuration
 linux:
   target: "AppImage"
-  maintainer: "eraxium"
-  vendor: "eraxium"
-  synopsis: "lofty-launcher"
+  maintainer: "kasycorp"
+  vendor: "kasycorp"
+  synopsis: "loftylauncher"
   description: "soon."
   category: "Game"
 

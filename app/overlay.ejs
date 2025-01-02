@@ -1,39 +1,39 @@
-<div id="overlayContainer" style="display: none;">
-    <div id="serverSelectContent" style="display: none;">
-        <span id="serverSelectHeader"><%- lang('overlay.serverSelectHeader') %></span>
-        <div id="serverSelectList">
-            <div id="serverSelectListScrollable">
+<div id="overlayContainer" class=" fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center"style=" z-index: 6996;display: none;">
+    <div id="serverSelectContent" class="hidden bg-gray-800 p-6 rounded-lg shadow-lg">
+        <span id="serverSelectHeader" class="text-xl font-bold text-white"><%- lang('overlay.serverSelectHeader') %></span>
+        <div id="serverSelectList" class="mt-4">
+            <div id="serverSelectListScrollable" class="max-h-64 overflow-y-auto">
                 <!-- Server listings populated here. -->
             </div>
         </div>
-        <div id="serverSelectActions">
-            <button id="serverSelectConfirm" class="overlayKeybindEnter" type="submit"><%- lang('overlay.serverSelectConfirm') %></button>
+        <div id="serverSelectActions" class="mt-4 flex justify-end space-x-4">
+            <button id="serverSelectConfirm" class="overlayKeybindEnter bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500" type="submit"><%- lang('overlay.serverSelectConfirm') %></button>
             <div id="serverSelectCancelWrapper">
-                <button id="serverSelectCancel" class="overlayKeybindEsc"><%- lang('overlay.serverSelectCancel') %></button>
+                <button id="serverSelectCancel" class="overlayKeybindEsc bg-gray-600 text-white py-2 px-4 rounded hover:bg-gray-500"><%- lang('overlay.serverSelectCancel') %></button>
             </div>
         </div>
     </div>
-    <div id="accountSelectContent" style="display: none;">
-        <span id="accountSelectHeader"><%- lang('overlay.accountSelectHeader') %></span>
-        <div id="accountSelectList">
-            <div id="accountSelectListScrollable">
+    <div id="accountSelectContent" class="hidden bg-gray-800 p-6 rounded-lg shadow-lg">
+        <span id="accountSelectHeader" class="text-xl font-bold text-white"><%- lang('overlay.accountSelectHeader') %></span>
+        <div id="accountSelectList" class="mt-4">
+            <div id="accountSelectListScrollable" class="max-h-64 overflow-y-auto">
                 <!-- Accounts populated here. -->
             </div>
         </div>
-        <div id="accountSelectActions">
-            <button id="accountSelectConfirm" class="overlayKeybindEnter" type="submit"><%- lang('overlay.accountSelectConfirm') %></button>
+        <div id="accountSelectActions" class="mt-4 flex justify-end space-x-4">
+            <button id="accountSelectConfirm" class="overlayKeybindEnter bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500" type="submit"><%- lang('overlay.accountSelectConfirm') %></button>
             <div id="accountSelectCancelWrapper">
-                <button id="accountSelectCancel" class="overlayKeybindEsc"><%- lang('overlay.accountSelectCancel') %></button>
+                <button id="accountSelectCancel" class="overlayKeybindEsc bg-gray-600 text-white py-2 px-4 rounded hover:bg-gray-500"><%- lang('overlay.accountSelectCancel') %></button>
             </div>
         </div>
     </div>
-    <div id="overlayContent">
-        <span id="overlayTitle">Lorem Ipsum:<br>Finis Illud</span>
-        <span id="overlayDesc">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud..</span>
-        <div id="overlayActionContainer">
-            <button id="overlayAcknowledge" class="overlayKeybindEnter">Conare Iterum</button>
+    <div id="overlayContent" class="bg-gray-800 p-6 rounded-lg shadow-lg">
+        <span id="overlayTitle" class="text-2xl font-bold text-white">Lorem Ipsum:<br>Finis Illud</span>
+        <span id="overlayDesc" class="mt-4 text-white">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud..</span>
+        <div id="overlayActionContainer" class="mt-4 flex justify-end space-x-4">
+            <button id="overlayAcknowledge" class="overlayKeybindEnter bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500">Conare Iterum</button>
             <div id="overlayDismissWrapper">
-                <button id="overlayDismiss" style="display: none;" class="overlayKeybindEsc">Dismiss</button>
+                <button id="overlayDismiss" class="overlayKeybindEsc bg-gray-600 text-white py-2 px-4 rounded hover:bg-gray-500 hidden">Dismiss</button>
             </div>
         </div>
     </div>

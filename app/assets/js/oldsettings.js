@@ -639,7 +639,6 @@ ipcRenderer.on(MSFT_OPCODE.REPLY_LOGOUT, (_, ...arguments_) => {
   }
 });
 
-
 /**
  * Refreshes the status of the selected account on the auth account
  * elements.
@@ -691,29 +690,51 @@ function populateAuthAccounts() {
   authKeys.forEach((val) => {
     const acc = authAccounts[val];
 
-    const accHtml = `<div class="settingsAuthAccount flex items-center p-4 bg-gray-800 rounded-lg shadow-lg mb-4" uuid="${acc.uuid}">
-        <div class="settingsAuthAccountLeft mr-4">
-            <img class="settingsAuthAccountImage w-16 h-16 rounded-full" alt="${acc.displayName}" src="https://mc-heads.net/avatar/${acc.uuid}/60">
-        </div>
-        <div class="settingsAuthAccountRight flex-grow">
-            <div class="settingsAuthAccountDetails mb-4">
-                <div class="settingsAuthAccountDetailPane mb-2">
-                    <div class="settingsAuthAccountDetailTitle text-sm font-semibold text-gray-400">${Lang.queryJS("settings.authAccountPopulate.username")}</div>
-                    <div class="settingsAuthAccountDetailValue text-lg font-bold text-white">${acc.displayName}</div>
+    const accHtml = `<div class="settingsAuthAccount" uuid="${acc.uuid}">
+            <div class="settingsAuthAccountLeft">
+                <img class="settingsAuthAccountImage" alt="${
+                  acc.displayName
+                }" src="https://mc-heads.net/body/${acc.uuid}/60">
+            </div>
+            <div class="settingsAuthAccountRight">
+                <div class="settingsAuthAccountDetails">
+                    <div class="settingsAuthAccountDetailPane">
+                        <div class="settingsAuthAccountDetailTitle">${Lang.queryJS(
+                          "settings.authAccountPopulate.username"
+                        )}</div>
+                        <div class="settingsAuthAccountDetailValue">${
+                          acc.displayName
+                        }</div>
+                    </div>
+                    <div class="settingsAuthAccountDetailPane">
+                        <div class="settingsAuthAccountDetailTitle">${Lang.queryJS(
+                          "settings.authAccountPopulate.uuid"
+                        )}</div>
+                        <div class="settingsAuthAccountDetailValue">${
+                          acc.uuid
+                        }</div>
+                    </div>
                 </div>
-                <div class="settingsAuthAccountDetailPane">
-                    <div class="settingsAuthAccountDetailTitle text-sm font-semibold text-gray-400">${Lang.queryJS("settings.authAccountPopulate.uuid")}</div>
-                    <div class="settingsAuthAccountDetailValue text-lg font-bold text-white">${acc.uuid}</div>
+                <div class="settingsAuthAccountActions">
+                    <button class="settingsAuthAccountSelect" ${
+                      selectedUUID === acc.uuid
+                        ? "selected>" +
+                          Lang.queryJS(
+                            "settings.authAccountPopulate.selectedAccount"
+                          )
+                        : ">" +
+                          Lang.queryJS(
+                            "settings.authAccountPopulate.selectAccount"
+                          )
+                    }</button>
+                    <div class="settingsAuthAccountWrapper">
+                        <button class="settingsAuthAccountLogOut">${Lang.queryJS(
+                          "settings.authAccountPopulate.logout"
+                        )}</button>
+                    </div>
                 </div>
             </div>
-            <div class="settingsAuthAccountActions flex space-x-4">
-                <button class="settingsAuthAccountSelect bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500" ${selectedUUID === acc.uuid ? "selected>" + Lang.queryJS("settings.authAccountPopulate.selectedAccount") : ">" + Lang.queryJS("settings.authAccountPopulate.selectAccount")}</button>
-                <div class="settingsAuthAccountWrapper">
-                    <button class="settingsAuthAccountLogOut bg-red-600 text-white py-2 px-4 rounded hover:bg-red-500">${Lang.queryJS("settings.authAccountPopulate.logout")}</button>
-                </div>
-            </div>
-        </div>
-    </div>`;
+        </div>`;
 
     if (acc.type === "microsoft") {
       microsoftAuthAccountStr += accHtml;
@@ -801,23 +822,29 @@ function parseModulesForUI(mdls, submodules, servConf) {
       mdl.rawModule.type === Type.FabricMod
     ) {
       if (mdl.getRequired().value) {
-        reqMods += `<div id="${mdl.getVersionlessMavenIdentifier()}" class="settingsBaseMod ${submodules ? "settingsSubMod" : ""}" enabled>
-                    <div class="settingsModContent p-4 bg-gray-800 rounded-lg shadow-lg mb-4">
-                        <div class="settingsModMainWrapper flex items-center justify-between">
-                            <div class="settingsModStatus w-4 h-4 bg-green-500 rounded-full mr-4"></div>
-                            <div class="settingsModDetails flex-grow">
-                                <span class="settingsModName text-lg font-bold text-white">${mdl.rawModule.name}</span>
-                                <span class="settingsModVersion text-sm text-gray-400">v${mdl.mavenComponents.version}</span>
+        reqMods += `<div id="${mdl.getVersionlessMavenIdentifier()}" class="settingsBaseMod settings${
+          submodules ? "Sub" : ""
+        }Mod" enabled>
+                    <div class="settingsModContent">
+                        <div class="settingsModMainWrapper">
+                            <div class="settingsModStatus"></div>
+                            <div class="settingsModDetails">
+                                <span class="settingsModName">${
+                                  mdl.rawModule.name
+                                }</span>
+                                <span class="settingsModVersion">v${
+                                  mdl.mavenComponents.version
+                                }</span>
                             </div>
                         </div>
-                        <label class="toggleSwitch">
-                            <input type="checkbox" checked class="hidden">
-                            <span class="toggleSwitchSlider block w-10 h-6 bg-gray-400 rounded-full shadow-inner"></span>
+                        <label class="toggleSwitch" reqmod>
+                            <input type="checkbox" checked>
+                            <span class="toggleSwitchSlider"></span>
                         </label>
                     </div>
                     ${
                       mdl.subModules.length > 0
-                        ? `<div class="settingsSubModContainer ml-4">
+                        ? `<div class="settingsSubModContainer">
                         ${Object.values(
                           parseModulesForUI(
                             mdl.subModules,
@@ -833,23 +860,31 @@ function parseModulesForUI(mdls, submodules, servConf) {
         const conf = servConf[mdl.getVersionlessMavenIdentifier()];
         const val = typeof conf === "object" ? conf.value : conf;
 
-        optMods += `<div id="${mdl.getVersionlessMavenIdentifier()}" class="settingsBaseMod ${submodules ? "settingsSubMod" : ""}" ${val ? "enabled" : ""}>
-                    <div class="settingsModContent p-4 bg-gray-800 rounded-lg shadow-lg mb-4">
-                        <div class="settingsModMainWrapper flex items-center justify-between">
-                            <div class="settingsModStatus w-4 h-4 ${val ? "bg-green-500" : "bg-red-500"} rounded-full mr-4"></div>
-                            <div class="settingsModDetails flex-grow">
-                                <span class="settingsModName text-lg font-bold text-white">${mdl.rawModule.name}</span>
-                                <span class="settingsModVersion text-sm text-gray-400">v${mdl.mavenComponents.version}</span>
+        optMods += `<div id="${mdl.getVersionlessMavenIdentifier()}" class="settingsBaseMod settings${
+          submodules ? "Sub" : ""
+        }Mod" ${val ? "enabled" : ""}>
+                    <div class="settingsModContent">
+                        <div class="settingsModMainWrapper">
+                            <div class="settingsModStatus"></div>
+                            <div class="settingsModDetails">
+                                <span class="settingsModName">${
+                                  mdl.rawModule.name
+                                }</span>
+                                <span class="settingsModVersion">v${
+                                  mdl.mavenComponents.version
+                                }</span>
                             </div>
                         </div>
                         <label class="toggleSwitch">
-                            <input type="checkbox" formod="${mdl.getVersionlessMavenIdentifier()}" ${val ? "checked" : ""} class="hidden">
-                            <span class="toggleSwitchSlider block w-10 h-6 bg-gray-400 rounded-full shadow-inner"></span>
+                            <input type="checkbox" formod="${mdl.getVersionlessMavenIdentifier()}" ${
+          val ? "checked" : ""
+        }>
+                            <span class="toggleSwitchSlider"></span>
                         </label>
                     </div>
                     ${
                       mdl.subModules.length > 0
-                        ? `<div class="settingsSubModContainer ml-4">
+                        ? `<div class="settingsSubModContainer">
                         ${Object.values(
                           parseModulesForUI(mdl.subModules, true, conf.mods)
                         ).join("")}
@@ -861,9 +896,11 @@ function parseModulesForUI(mdls, submodules, servConf) {
     }
   }
 
-  return { reqMods, optMods };
+  return {
+    reqMods,
+    optMods,
+  };
 }
-
 
 /**
  * Bind functionality to mod config toggle switches. Switching the value
@@ -948,25 +985,37 @@ async function resolveDropinModsForUI() {
   let dropinMods = "";
 
   for (dropin of CACHE_DROPIN_MODS) {
-      dropinMods += `<div id="${dropin.fullName}" class="settingsBaseMod settingsDropinMod ${!dropin.disabled ? "enabled" : ""}">
-                      <div class="settingsModContent p-4 bg-gray-800 rounded-lg shadow-lg mb-4">
-                          <div class="settingsModMainWrapper flex items-center justify-between">
-                              <div class="settingsModStatus w-4 h-4 ${!dropin.disabled ? "bg-green-500" : "bg-red-500"} rounded-full mr-4"></div>
-                              <div class="settingsModDetails flex-grow">
-                                  <span class="settingsModName text-lg font-bold text-white">${dropin.name}</span>
-                                  <div class="settingsDropinRemoveWrapper ml-4">
-                                      <button class="settingsDropinRemoveButton bg-red-600 text-white py-2 px-4 rounded hover:bg-red-500" remmod="${dropin.fullName}">${Lang.queryJS("settings.dropinMods.removeButton")}</button>
-                                  </div>
-                              </div>
-                          </div>
-                          <label class="toggleSwitch">
-                              <input type="checkbox" formod="${dropin.fullName}" dropin ${!dropin.disabled ? "checked" : ""} class="hidden">
-                              <span class="toggleSwitchSlider block w-10 h-6 bg-gray-400 rounded-full shadow-inner"></span>
-                          </label>
-                      </div>
-                  </div>`;
+    dropinMods += `<div id="${
+      dropin.fullName
+    }" class="settingsBaseMod settingsDropinMod" ${
+      !dropin.disabled ? "enabled" : ""
+    }>
+                    <div class="settingsModContent">
+                        <div class="settingsModMainWrapper">
+                            <div class="settingsModStatus"></div>
+                            <div class="settingsModDetails">
+                                <span class="settingsModName">${
+                                  dropin.name
+                                }</span>
+                                <div class="settingsDropinRemoveWrapper">
+                                    <button class="settingsDropinRemoveButton" remmod="${
+                                      dropin.fullName
+                                    }">${Lang.queryJS(
+      "settings.dropinMods.removeButton"
+    )}</button>
+                                </div>
+                            </div>
+                        </div>
+                        <label class="toggleSwitch">
+                            <input type="checkbox" formod="${
+                              dropin.fullName
+                            }" dropin ${!dropin.disabled ? "checked" : ""}>
+                            <span class="toggleSwitchSlider"></span>
+                        </label>
+                    </div>
+                </div>`;
   }
-  
+
   document.getElementById("settingsDropinModsContent").innerHTML = dropinMods;
 }
 
@@ -1187,20 +1236,35 @@ async function loadSelectedServerOnModsTab() {
 
   for (const el of document.getElementsByClassName("settingsSelServContent")) {
     el.innerHTML = `
-            <img class="serverListingImg w-16 h-16 rounded-full mr-4" src="${serv.rawServer.icon}"/>
-            <div class="serverListingDetails flex flex-col">
-                <span class="serverListingName text-lg font-bold text-white">${serv.rawServer.name}</span>
-                <span class="serverListingDescription text-sm text-gray-400">${
+            <img class="serverListingImg" src="${serv.rawServer.icon}"/>
+            <div class="serverListingDetails">
+                <span class="serverListingName">${serv.rawServer.name}</span>
+                <span class="serverListingDescription">${
                   serv.rawServer.description
                 }</span>
-                <div class="serverListingInfo flex items-center mt-2 space-x-4">
-                    <div class="serverListingVersion text-sm text-gray-300">${
+                <div class="serverListingInfo">
+                    <div class="serverListingVersion">${
                       serv.rawServer.minecraftVersion
                     }</div>
-                    <div class="serverListingRevision text-sm text-gray-300">${
+                    <div class="serverListingRevision">${
                       serv.rawServer.version
                     }</div>
-                    
+                    ${
+                      serv.rawServer.mainServer
+                        ? `<div class="serverListingStarWrapper">
+                        <svg id="Layer_1" viewBox="0 0 107.45 104.74" width="20px" height="20px">
+                            <defs>
+                                <style>.cls-1{fill:#fff;}.cls-2{fill:none;stroke:#fff;stroke-miterlimit:10;}</style>
+                            </defs>
+                            <path class="cls-1" d="M100.93,65.54C89,62,68.18,55.65,63.54,52.13c2.7-5.23,18.8-19.2,28-27.55C81.36,31.74,63.74,43.87,58.09,45.3c-2.41-5.37-3.61-26.52-4.37-39-.77,12.46-2,33.64-4.36,39-5.7-1.46-23.3-13.57-33.49-20.72,9.26,8.37,25.39,22.36,28,27.55C39.21,55.68,18.47,62,6.52,65.55c12.32-2,33.63-6.06,39.34-4.9-.16,5.87-8.41,26.16-13.11,37.69,6.1-10.89,16.52-30.16,21-33.9,4.5,3.79,14.93,23.09,21,34C70,86.84,61.73,66.48,61.59,60.65,67.36,59.49,88.64,63.52,100.93,65.54Z"/>
+                            <circle class="cls-2" cx="53.73" cy="53.9" r="38"/>
+                        </svg>
+                        <span class="serverListingStarTooltip">${Lang.queryJS(
+                          "settings.serverListing.mainServer"
+                        )}</span>
+                    </div>`
+                        : ""
+                    }
                 </div>
             </div>
         `;

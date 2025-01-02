@@ -1,63 +1,62 @@
-<div id="loginContainer" style="display: none;">
-    <div id="loginCancelContainer" style="display: none;">
-        <button id="loginCancelButton">
-            <div id="loginCancelIcon">X</div>
+<div id="loginContainer" class="hidden fixed inset-0 flex items-center justify-center bg-black bg-opacity-50"style="display: none;">
+    <div id="loginCancelContainer" class="absolute top-4 right-4">
+        <button id="loginCancelButton" class="flex items-center text-white">
+            <div id="loginCancelIcon" class="mr-2">X</div>
             <span id="loginCancelText"><%- lang('login.loginCancelText') %></span>
         </button>
     </div>
-    <div id="loginContent">
-        <form id="loginForm">
-            <img id="loginImageSeal" src="assets/images/SealCircle.png"/>
-            <span id="loginSubheader"><%- lang('login.loginSubheader') %></span>
-            <div class="loginFieldContainer">
-                <svg id="profileSVG" class="loginSVG" viewBox="40 37 65.36 61.43">
+    <div id="loginContent" class="bg-white p-8 rounded-lg shadow-lg">
+        <form id="loginForm" class="space-y-4">
+            <img id="loginImageSeal" src="assets/images/SealCircle.png" class="mx-auto mb-4"/>
+            <span id="loginSubheader" class="block text-center text-xl font-semibold mb-4"><%- lang('login.loginSubheader') %></span>
+            <div class="loginFieldContainer mb-4">
+                <svg id="profileSVG" class="loginSVG w-6 h-6 inline-block mr-2" viewBox="40 37 65.36 61.43">
                     <g>
                         <path d="M86.77,58.12A13.79,13.79,0,1,0,73,71.91,13.79,13.79,0,0,0,86.77,58.12M97,103.67a3.41,3.41,0,0,0,3.39-3.84,27.57,27.57,0,0,0-54.61,0,3.41,3.41,0,0,0,3.39,3.84Z"/>
                     </g>
                 </svg>
-                <span class="loginErrorSpan" id="loginEmailError"><%- lang('login.loginEmailError') %></span>
-                <input id="loginUsername" class="loginField" type="text" placeholder="<%- lang('login.loginEmailPlaceholder') %>"/>
+                <span class="loginErrorSpan text-red-500 text-sm" id="loginEmailError"><%- lang('login.loginEmailError') %></span>
+                <input id="loginUsername" class="loginField w-full p-2 border border-gray-300 rounded mt-1" type="text" placeholder="<%- lang('login.loginEmailPlaceholder') %>"/>
             </div>
-            <div class="loginFieldContainer">
-                <svg id="lockSVG" class="loginSVG" viewBox="40 32 60.36 70.43">
+            <div class="loginFieldContainer mb-4">
+                <svg id="lockSVG" class="loginSVG w-6 h-6 inline-block mr-2" viewBox="40 32 60.36 70.43">
                     <g>
                         <path d="M86.16,54a16.38,16.38,0,1,0-32,0H44V102.7H96V54Zm-25.9-3.39a9.89,9.89,0,1,1,19.77,0A9.78,9.78,0,0,1,79.39,54H60.89A9.78,9.78,0,0,1,60.26,50.59ZM70,96.2a6.5,6.5,0,0,1-6.5-6.5,6.39,6.39,0,0,1,3.1-5.4V67h6.5V84.11a6.42,6.42,0,0,1,3.39,5.6A6.5,6.5,0,0,1,70,96.2Z"/>
                     </g>
                 </svg>
-                <span class="loginErrorSpan" id="loginPasswordError"><%- lang('login.loginPasswordError') %></span>
-                <input id="loginPassword" class="loginField" type="password" placeholder="<%- lang('login.loginPasswordPlaceholder') %>"/>
+                <span class="loginErrorSpan text-red-500 text-sm" id="loginPasswordError"><%- lang('login.loginPasswordError') %></span>
+                <input id="loginPassword" class="loginField w-full p-2 border border-gray-300 rounded mt-1" type="password" placeholder="<%- lang('login.loginPasswordPlaceholder') %>"/>
             </div>
-            <div id="loginOptions">
-                <span class="loginSpanDim">
-                    <a href="<%- lang('login.loginForgotPasswordLink') %>"><%- lang('login.loginForgotPasswordText') %></a>
+            <div id="loginOptions" class="flex items-center justify-between mb-4">
+                <span class="loginSpanDim text-sm">
+                    <a href="<%- lang('login.loginForgotPasswordLink') %>" class="text-blue-500 hover:underline"><%- lang('login.loginForgotPasswordText') %></a>
                 </span>
-                <label id="checkmarkContainer">
-                    <input id="loginRememberOption" type="checkbox" checked>
-                    <span id="loginRememberText" class="loginSpanDim"><%- lang('login.loginRememberMeText') %></span>
+                <label id="checkmarkContainer" class="flex items-center">
+                    <input id="loginRememberOption" type="checkbox" checked class="mr-2">
+                    <span id="loginRememberText" class="loginSpanDim text-sm"><%- lang('login.loginRememberMeText') %></span>
                     <span class="loginCheckmark"></span>
                 </label>
             </div>
-            <button id="loginButton" disabled>
-                <div id="loginButtonContent">
+            <button id="loginButton" class="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-500" disabled>
+                <div id="loginButtonContent" class="flex items-center justify-center">
                     <%- lang('login.loginButtonText') %>
-                    <svg id="loginSVG" viewBox="0 0 24.87 13.97">
+                    <svg id="loginSVG" class="ml-2" viewBox="0 0 24.87 13.97">
                         <defs>
                             <style>.arrowLine{fill:none;stroke:#FFF;stroke-width:2px;transition: 0.25s ease;}</style>
                         </defs>
                         <polyline class="arrowLine" points="0.71 13.26 12.56 1.41 24.16 13.02"/>
                     </svg>
-                    <div class="circle-loader">
+                    <div class="circle-loader ml-2">
                         <div class="checkmark draw"></div>
                     </div>
-                    <!--<div class="spinningCircle" id="loginSpinner"></div>-->
                 </div>
             </button>
-            <div id="loginDisclaimer">
-                <span class="loginSpanDim" id="loginRegisterSpan">
-                    <a href="<%- lang('login.loginNeedAccountLink') %>"><%- lang('login.loginNeedAccountText') %></a>
+            <div id="loginDisclaimer" class="mt-4 text-center">
+                <span class="loginSpanDim text-sm" id="loginRegisterSpan">
+                    <a href="<%- lang('login.loginNeedAccountLink') %>" class="text-blue-500 hover:underline"><%- lang('login.loginNeedAccountText') %></a>
                 </span>
-                <p class="loginDisclaimerText"><%- lang('login.loginPasswordDisclaimer1') %></p>
-                <p class="loginDisclaimerText"><%- lang('login.loginPasswordDisclaimer2', { appName: lang('app.title') }) %></p>
+                <p class="loginDisclaimerText text-xs text-gray-500 mt-2"><%- lang('login.loginPasswordDisclaimer1') %></p>
+                <p class="loginDisclaimerText text-xs text-gray-500"><%- lang('login.loginPasswordDisclaimer2', { appName: lang('app.title') }) %></p>
             </div>
         </form>
     </div>

@@ -131,7 +131,7 @@ continueButton = "CONTINUER"
 
 [js.discord]
 waiting = "En attente du client.."
-state = "lofty-launcher V2.1.1"
+state = "loftylauncher V2.1.1"
 
 [js.index]
 microsoftLoginTitle = "Connexion Microsoft"
@@ -196,9 +196,9 @@ unableToLoadDistributionIndex = "Impossible de charger une copie de l'index de d
 pleaseWait = "Veuillez patienter.."
 errorDuringLaunchTitle = "Erreur lors du lancement"
 seeConsoleForDetails = "Consultez la console (CTRL + Shift + i) pour plus de détails."
-validatingFileIntegrity = "Validation de l'intégrité du fichier.."
+validatingFileIntegrity = "Validation"
 errorDuringFileVerificationTitle = "Erreur lors de la vérification du fichier"
-downloadingFiles = "Téléchargement des fichiers.."
+downloadingFiles = "Téléchargement"
 errorDuringFileDownloadTitle = "Erreur lors du téléchargement du fichier"
 preparingToLaunch = "Préparation du lancement.."
 launchingGame = "Lancement du jeu.."

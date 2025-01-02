@@ -1,18 +1,18 @@
-<div id="welcomeContainer" style="display: none;">
+<div id="welcomeContainer" class="hidden">
     <!--<div class="cloudDiv">
         <div class="cloudTop"></div>
         <div class="cloudBottom"></div>
     </div>-->
-    <div id="welcomeContent">
-        <img id="welcomeImageSeal" src="assets/images/SealCircle.png"/>
-        <span id="welcomeHeader"><%- lang('welcome.welcomeHeader') %></span>
-        <span id="welcomeDescription"><%- lang('welcome.welcomeDescription') %></span>
+    <div id="welcomeContent" class="text-center">
+        <img id="welcomeImageSeal" src="assets/images/SealCircle.png" class="mx-auto"/>
+        <span id="welcomeHeader" class="block text-2xl font-bold"><%- lang('welcome.welcomeHeader') %></span>
+        <span id="welcomeDescription" class="block text-lg"><%- lang('welcome.welcomeDescription') %></span>
         <br>
-        <span id="welcomeDescCTA"><%- lang('welcome.welcomeDescCTA') %></span>
-        <button id="welcomeButton">
-            <div id="welcomeButtonContent">
+        <span id="welcomeDescCTA" class="block text-lg"><%- lang('welcome.welcomeDescCTA') %></span>
+        <button id="welcomeButton" class="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700">
+            <div id="welcomeButtonContent" class="flex items-center justify-center">
                 <%- lang('welcome.continueButton') %>
-                <svg id="welcomeSVG" viewBox="0 0 24.87 13.97">
+                <svg id="welcomeSVG" viewBox="0 0 24.87 13.97" class="ml-2 w-6 h-6">
                     <defs>
                         <style>.arrowLine{fill:none;stroke:#FFF;stroke-width:2px;transition: 0.25s ease;}</style>
                     </defs>

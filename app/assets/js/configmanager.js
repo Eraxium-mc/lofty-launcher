@@ -11,7 +11,7 @@ const sysRoot =
     ? process.env.HOME + "/Library/Application Support"
     : process.env.HOME);
 
-const dataPath = path.join(sysRoot, ".lofty-launcher");
+const dataPath = path.join(sysRoot, ".loftylauncher");
 
 const launcherDir = require("@electron/remote").app.getPath("userData");
 
