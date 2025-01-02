@@ -1,0 +1,50 @@
+appId: "loftylauncher"
+productName: "loftylauncher"
+artifactName: "${productName}-setup-${version}.${ext}"
+
+copyright: "Copyright © 2023-2024 WilTark"
+
+asar: true
+compression: "maximum"
+
+files:
+  - "!{dist,.gitignore,.vscode,docs,dev-app-update.yml,.nvmrc,.eslintrc.json}"
+
+extraResources:
+  - "libraries"
+
+# Windows Configuration
+win:
+  target:
+    - target: "nsis"
+      arch: "x64"
+
+# Windows Installer Configuration
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+
+# macOS Configuration
+mac:
+  target:
+    - target: "dmg"
+      arch:
+        - "x64"
+        - "arm64"
+  artifactName: "${productName}-setup-${version}-${arch}.${ext}"
+  category: "public.app-category.games"
+
+# Linux Configuration
+linux:
+  target: "AppImage"
+  maintainer: "kasycorp"
+  vendor: "kasycorp"
+  synopsis: "loftylauncher"
+  description: "soon."
+  category: "Game"
+
+directories:
+  buildResources: "build"
+  output: "dist"

@@ -1,0 +1,39 @@
+<div id="frameBar" class="fixed top-0 left-0 w-full z-50 font-sora bg-gray-900" style="display: none;">
+    <div id="frameResizableTop" class="frameDragPadder"></div>
+    <div id="frameMain" class="flex flex-row items-center justify-between">
+        <div class="frameResizableVert frameDragPadder"></div>
+        <% if (process.platform === 'darwin') { %>
+            <div id="frameContentDarwin" class="flex items-center">
+                <div id="frameButtonDockDarwin" class="flex space-x-2">
+                    <button class="frameButtonDarwin fCb" id="frameButtonDarwin_close" tabIndex="-1">
+                        <i class="bi bi-x-lg text-white"></i>
+                    </button>
+                    <button class="frameButtonDarwin fMb" id="frameButtonDarwin_minimize" tabIndex="-1">
+                        <i class="bi bi-dash-lg text-white"></i>
+                    </button>
+                    <button class="frameButtonDarwin fRb" id="frameButtonDarwin_restoredown" tabIndex="-1">
+                        <i class="bi bi-square text-white"></i>
+                    </button>
+                </div>
+            </div>
+        <% } else { %>
+            <div id="frameContentWin" class="flex items-center justify-between w-full">
+                <div id="frameTitleDock" class="flex-grow">
+                    <span id="frameTitleText" class="text-white"><%= lang('app.title') %></span>
+                </div>
+                <div id="frameButtonDockWin" class="flex space-x-2">
+                    <button class="frameButton fMb" id="frameButton_minimize" tabIndex="-1">
+                        <i style="font-size: 10px;" class="bi bi-dash-lg text-white"></i>
+                    </button>
+                    <button class="frameButton fRb" id="frameButton_restoredown" tabIndex="-1">
+                        <i style="font-size: 10px;" class="bi bi-square text-white"></i>
+                    </button>
+                    <button class="frameButton fCb" id="frameButton_close" tabIndex="-1">
+                        <i style="font-size: 10px;" class="bi bi-x-lg text-white"></i>
+                    </button>
+                </div>
+            </div>
+        <% } %>
+        <div class="frameResizableVert frameDragPadder"></div>
+    </div>
+</div>

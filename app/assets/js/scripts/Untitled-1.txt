@@ -1,0 +1,20 @@
+0:
+  cost: 0
+  members: 5
+  fly: false
+  fill: false
+  warps: 2
+  # teleport cooldown in ticks (20 ticks = 1 second)
+  warp-cooldown: 100
+  claims: 5
+  potion-effects: []
+  max-active-quests: 1
+  chest-size: 0
+1:
+  cost: 10000
+  fly: false
+  fill: true
+  members: 10
+  warps: 5
+  warp-cooldown: 80
+  claims: 15
